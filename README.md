@@ -1,6 +1,7 @@
-geodatagov-wp
+The Wordpress theme for geodata.gov.gr based on Twenty Thirteen (https://wordpress.org/themes/twentythirteen/)
 
-The Wordpress theme for geodata.gov.gr
-
+Requirements
+------------
 -Wordpress version 4.1.1 (https://wordpress.org/wordpress-4.1.1.zip)
+
 -WP To Twitter (https://wordpress.org/plugins/wp-to-twitter/)
