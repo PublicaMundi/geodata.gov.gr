@@ -840,8 +840,8 @@ msgid ""
 msgstr ""
 
 #: functions.php:350
-msgid "^ Back to all news"
-msgstr "^ Πίσω σε όλα τα νέα"
+msgid "Back to all news"
+msgstr "Πίσω σε όλα τα νέα"
 
 
 #: functions.php:351
@@ -1109,92 +1109,85 @@ msgstr ""
 msgid "my_excerpt_length"
 msgstr ""
 
-#: header.php:22
-msgid "charset"
-msgstr ""
 
-#: header.php:24
-msgid "right"
-msgstr ""
+#: functions.php:719
+msgid "Utilities Communication"
+msgstr "Επιχειρήσεις Κοινής Ωφελείας Επικοινωνία"
+
+#: functions.php:722
+msgid "Transportation"
+msgstr "Μεταφορές"
+
+#: functions.php:725
+msgid "Structure"
+msgstr "Κατασκευές"
+
+#: functions.php:728
+msgid "Society"
+msgstr "Κοινωνία"
+
+#: functions.php:731
+msgid "Planning Cadastre"
+msgstr "Χωροταξία Κτηματολόγιο"
+
+#: functions.php:734
+msgid "Oceans"
+msgstr "Θάλασσες"
+
+#: functions.php:737
+msgid "Location"
+msgstr "Γεωγραφική Θέση"
+
+#: functions.php:740
+msgid "Intelligence Military"
+msgstr "Στρατιωτικές Πληροφορίες"
+
+#: functions.php:743
+msgid "Inland Waters"
+msgstr "Εσωτερικά Ύδατα"
+
+#: functions.php:746
+msgid "Imagery Base Maps Earth Cover"
+msgstr "Ορθοεικόνες Βασικοί Χάρτες Κάλυψη Γης"
+
+#: functions.php:749
+msgid "Health"
+msgstr "Υγεία"
+
+#: functions.php:752
+msgid "Geoscientific Information"
+msgstr "Γεωεπιστημονικές Πληροφορίες"
+
+#: functions.php:755
+msgid "Climatology Meteorology Atmosphere"
+msgstr "Μετεωρολογία Κλιματολογία Ατμόσφαιρα"
+
+#: functions.php:758
+msgid "Environment"
+msgstr "Περιβάλλον"
+
+#: functions.php:761
+msgid "Elevation"
+msgstr "Υψομετρία"
+
+#: functions.php:764
+msgid "Economy"
+msgstr "Οικονομία"
+
+#: functions.php:767
+msgid "Farming"
+msgstr "Γεωργία"
+
+#: functions.php:770
+msgid "Boundaries"
+msgstr "Όρια"
+
+#: functions.php:773
+msgid "Biota"
+msgstr "Βιόκοσμος"
 
 #: header.php:26
 msgid "pingback_url"
-msgstr ""
-
-#: header.php:107
-msgid "Utilities - Communication"
-msgstr ""
-
-#: header.php:116
-msgid "Transportation"
-msgstr ""
-
-#: header.php:126
-msgid "Structure"
-msgstr ""
-
-#: header.php:137
-msgid "Society"
-msgstr ""
-
-#: header.php:147
-msgid "Planning Cadastre"
-msgstr ""
-
-#: header.php:157
-msgid "Oceans"
-msgstr ""
-
-#: header.php:169
-msgid "Location"
-msgstr ""
-
-#: header.php:177
-msgid "Intelligence - Military"
-msgstr ""
-
-#: header.php:186
-msgid "Inland Waters"
-msgstr ""
-
-#: header.php:197
-msgid "Imagery Base Maps Earth Cover"
-msgstr ""
-
-#: header.php:207
-msgid "Health"
-msgstr ""
-
-#: header.php:217
-msgid "Geoscientific Information"
-msgstr ""
-
-#: header.php:228
-msgid "Farming"
-msgstr ""
-
-#: header.php:238
-msgid "Environment"
-msgstr ""
-
-#: header.php:247
-msgid "Elevation"
-msgstr ""
-
-#: header.php:259
-msgid "Economy"
-msgstr ""
-
-#: header.php:268
-msgid "Meteorology"
-msgstr ""
-
-#: header.php:278
-msgid "Boundaries"
-msgstr ""
-
-#: header.php:290
-msgid "Biota"
 msgstr ""
 
 #: header.php:324

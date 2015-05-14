@@ -70,4 +70,7 @@ function menuHandler() {
             $(this).addClass('breadcrumb-hide-text');
         });
 
+    // Add last class to news page
+    $var = $('.hentry:last');
+    $var.find('.container').css('border-bottom','none');
 }

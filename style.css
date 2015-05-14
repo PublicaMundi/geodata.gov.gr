@@ -97,13 +97,17 @@ audio:not([controls]) {
 .news-box{
     float:left;
 }
+.single.news-box{
+    float:center;
+}
 .post-social{
-    float:right;
-    
+   margin-left:auto;
+   margin-right:auto;
+   width: 120px;
 }
 .post-social.social a [class^="icon-"]{
     margin-left: 20px;
-    font-size: 30px;
+    font-size: 26px;
 }
 .type-post:hover{
     //background: #F6F6F6;
@@ -706,11 +710,13 @@ img.wp-smiley,
  * 5.0 Content
  * ----------------------------------------------------------------------------
  */
-
 .hentry {
 	padding: 20px 0;
 }
-
+.hentry > .container{
+    padding-bottom:20px;
+    border-bottom: 1px #d8d8e4 solid;
+}
 .entry-header,
 .entry-content,
 .entry-summary,
@@ -1621,13 +1627,37 @@ footer.entry-meta {
 .module .pagination li.active a{
     background: #F3F4F4; 
 }
-.next-post{
+.nav-links a{
+    white-space: pre-wrap;
+    -webkit-transition: color 0.2s ease-in;
+    -moz-transition: color 0.2s ease-in;
+    -o-transition: color 0.2s ease-in;
+    transition: color 0.2s ease-in;
+}
+.nav-links a:hover, .nav-links a:focus{
+    color: #000;
+    text-decoration: none;
+}
+.post-section{
+    padding: 1% 0;
     display: block;
-    float:left;
+    float: left;
+    width: 32%;
+    height: 100%;
+    text-align: center;
+    line-height:18px;
+}
+.next-post{
+    text-align: left;
+    border-right: 2px #d8d8e4 solid;
+}
+.back-post{
+    //border-right: 1px #d8d8e4 solid;
 }
 .previous-post{
-    display: block;
-    float:right;
+    width: 35%;;
+    text-align: right;
+    border-left: 2px #d8d8e4 solid;
 }
 .paging-navigation {
 	//background-color: #e8e5ce;
@@ -1638,7 +1668,7 @@ footer.entry-meta {
 }
 
 .paging-navigation .nav-links {
-	margin: 0 auto;
+	margin: 10 auto;
 }
 
 .sidebar .paging-navigation .nav-links {
@@ -1650,7 +1680,7 @@ footer.entry-meta {
 	padding: 13px 0;
 }
 .nav-links a{
-    font-size: 17px;
+    font-size: 15px;
 }
 .paging-navigation a {
 	//font-size: 22px;
@@ -1695,8 +1725,12 @@ footer.entry-meta {
 }
 
 .post-navigation .nav-links {
+    border-top: 2px #4E59A4 solid;
+    border-bottom: 2px #4E59A4 solid;
 	margin: 0 auto;
-	max-width: 1040px;
+    overflow:hidden;
+    height: 55px;
+
 }
 
 .sidebar .post-navigation .nav-links {

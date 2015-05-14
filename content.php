@@ -12,7 +12,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="container">
-        <div class="news-box">
+        <div class="news-box <?php if (is_single()){?>single<?php } ?>">
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
@@ -55,13 +55,13 @@
     	</div><!-- .entry-content -->
 	<?php endif; ?>
     <?php if (is_single()) : ?>
-        <section class="post-social social">
+        <div class="post-social social">
   <ul class="unstyled">
   <li><a href="https://plus.google.com/share?url=<?php echo get_permalink( the_ID()) ?>" target="_blank"><i class="icon-google-plus-sign"></i></a></li>
     <li><a href="https://twitter.com/share?url= <?php echo get_permalink( the_ID()) ?>" target="_blank"><i class="icon-twitter-sign"></i></a></li>
     <li><a href="https://www.facebook.com/sharer.php?u= <?php echo get_permalink( the_ID()) ?>" target="_blank"><i class="icon-facebook-sign"></i></a></li>
 </ul>
-</section>
+</div>
     <?php endif ?>  
 	<footer class="entry-meta">
 		<?php if ( comments_open() && ! is_single() ) : ?>

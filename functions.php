@@ -248,7 +248,7 @@ add_filter( 'wp_title', 'twentythirteen_wp_title', 10, 2 );
  */
 function twentythirteen_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'twentythirteen' ),
+	    'name'          => __( 'Main Widget Area', 'twentythirteen' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Appears in the footer section of the site.', 'twentythirteen' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -349,13 +349,7 @@ function twentythirteen_post_nav() {
         $home_link = 0;
 ?>
 
-    <nav class="navigation post-navigation" role="navigation">
-        <div class="nav-links">
-        <div class="container">
-            <a href="<?php echo esc_url(add_query_arg(array('page_id' => False, 'p' => False))) ?>"><span><?php _e('^ Back to all news', 'twentythirteen') ?></span></a>
-        </div>
-        </div>
-    </nav>
+            
 <?php
 	if ( ! $next && ! $previous )
 		return;
@@ -363,15 +357,20 @@ function twentythirteen_post_nav() {
 	<nav class="navigation post-navigation" role="navigation">
         <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
         <div class="container">
-		<div class="nav-links">
+        <div class="nav-links">
+            <div class="post-section next-post">
             <?php
             if ( is_a( $next , 'WP_Post' ) ) { ?>
-                 <a class="next-post" href="<?php echo add_query_arg('p', $next->ID ); ?>">< <?php echo get_the_title( $next->ID ); ?></a>
-            <?php } ?>
+                 <a href="<?php echo add_query_arg('p', $next->ID ); ?>"><span><&nbsp;<?php echo get_the_title( $next->ID ); ?></a>
+            <?php } ?></div>
+             
+            <div class="post-section back-post"><a href="<?php echo esc_url(add_query_arg(array('page_id' => False, 'p' => False))) ?>"><?php _e('Back to all news', 'twentythirteen') ?></a></div>
+            <div class="post-section previous-post">
             <?php
             if ( is_a( $previous , 'WP_Post' ) ) { ?>
-                 <a class="previous-post" href="<?php echo add_query_arg('p', $previous->ID ); ?>"><?php echo get_the_title( $previous->ID ); ?> ></a>
+                 <a href="<?php echo add_query_arg('p', $previous->ID ); ?>"><?php echo get_the_title( $previous->ID ); ?>&nbsp;></a>
             <?php } ?>
+            </div>
 
 
         </div><!-- .nav-links -->
@@ -689,7 +688,7 @@ function my_excerpt_length($length) {
                                                   return $query;
 
  }
- */
+*/
 
 add_filter('get_available_locales', 'get_available_locales');
 function get_available_locales(){
@@ -711,3 +710,85 @@ function get_active_locale(){
 
 add_filter('show_admin_bar', '__return_false');
 //add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
+
+// INSPIRE Groups
+function get_inspire_groups(){
+    return
+        array(
+                array('name' =>'utilities-communication',
+                'display_name'=> __('Utilities Communication', 'twentythirteen'),)
+                ,
+                array('name' =>'transportation',
+                'display_name'=> __('Transportation', 'twentythirteen'),)
+                ,
+                array('name' =>'structure',
+                'display_name'=> __('Structure', 'twentythirteen'),)
+                ,
+                array('name' =>'society',
+                'display_name'=> __('Society', 'twentythirteen'),)
+                ,
+                array('name' =>'planning-cadastre',
+                'display_name'=> __('Planning Cadastre', 'twentythirteen'),)
+                ,
+                array('name' =>'oceans',
+                'display_name'=>__('Oceans', 'twentythirteen'),)
+                ,
+                array('name' =>'location',
+                'display_name'=>__('Location', 'twentythirteen'),)
+                ,
+                array('name' =>'intelligence-military',
+                'display_name'=>__('Intelligence Military', 'twentythirteen'),)
+                ,
+                array('name' =>'inland-waters',
+                'display_name'=>__('Inland Waters', 'twentythirteen'),)
+                ,
+                array('name' =>'imagery-base-maps-earth-cover',
+                'display_name'=>__('Imagery Base Maps Earth Cover', 'twentythirteen'),)
+                ,
+                array('name' =>'health',
+                'display_name'=>__('Health', 'twentythirteen'),)
+                ,
+                array('name' =>'geoscientific-information',
+                'display_name'=>__('Geoscientific Information', 'twentythirteen'),)
+                ,
+                array('name' =>'climatology-meteorology-atmosphere',
+                'display_name'=>__('Climatology Meteorology Atmosphere', 'twentythirteen'),)
+                ,
+                array('name' =>'environment',
+                'display_name'=>__('Environment', 'twentythirteen'),)
+                ,
+                array('name' =>'elevation',
+                'display_name'=>__('Elevation', 'twentythirteen'),)
+                ,
+                array('name' =>'economy',
+                'display_name'=>__('Economy', 'twentythirteen'),)
+                ,
+                array('name' =>'farming',
+                'display_name'=>__('Farming', 'twentythirteen'),)
+                ,
+                array('name' =>'boundaries',
+                'display_name'=>__('Boundaries', 'twentythirteen'),)
+                ,
+                array('name' =>'biota',
+                'display_name'=>__('Biota', 'twentythirteen'),)
+            );
+}
+
+function get_menu_items(){
+    $menu = '<ul class="icons-grid">';
+    $lang = get_active_locale()['code'];
+
+    foreach (get_inspire_groups() as $group){
+
+        $menu .= '<li class="menu-item">
+        <a href="'.$lang .'/group/'. $group['name'] .'">
+        
+            <img src="'. get_bloginfo('template_directory') .'/images/topics/'. $group['name'] .'.png" alt="'. $group['name'] .'" class="menu-image">
+            <span class="menu-heading">'. $group['display_name'] .'</span>
+        </a>
+        </li>';
+    }
+
+    $menu .= '</ul>';
+    return $menu;
+}
