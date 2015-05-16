@@ -46,26 +46,8 @@
         <div class="mainmenu">
         <nav class="section navigation">
           <ul class="nav nav-pills">
-            <li>
-              <a href="<?php echo get_active_locale()['code']?>/dataset" >  <?php _e('Datasets' , 'twentythirteen'); ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_active_locale()['code']?>/group"> <?php _e('Topics' , 'twentythirteen'); ?> </a>
-            </li>
-            <li>
-              <a href="<?php echo get_active_locale()['code']?>/organization">  <?php _e('Organizations' , 'twentythirteen'); ?> </a>
-            </li>
-            <li>
-              <a href="<?php echo get_active_locale()['code']?>/maps"> <?php _e('Maps' , 'twentythirteen'); ?> </a>
-            </li>
-            <li>
-              <a href="/news?lang=<?php echo get_active_locale()['code']?>"> <?php _e('News' , 'twentythirteen'); ?> </a>
-            </li>
-
-            <li>
-              <a href="<?php echo get_active_locale()['code']?>/about"> <?php _e('About' , 'twentythirteen'); ?> </a>
-            </li>
-
+    <?php echo create_geodata_menu() ?>
+            
         </ul>
         </nav>
         </div>
@@ -100,7 +82,7 @@
 
 
     <div id="menu-block-home" class="container">
-        <?php echo get_menu_items() ?>     
+        <?php echo create_geodata_group_menu() ?>     
     </div>
 
 	<div id="page" >

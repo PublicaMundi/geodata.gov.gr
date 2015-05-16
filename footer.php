@@ -35,26 +35,8 @@
 
         <div class="quarter footer-links">
             <ul class="unstyled">
-            <li>
-              <a href="/dataset">  <?php _e('Datasets' , 'twentythirteen'); ?></a>
-            </li>
-            <li>
-              <a href="/group"> <?php _e('Topics' , 'twentythirteen'); ?> </a>
-            </li>
-            <li>
-              <a href="/organization">  <?php _e('Organizations' , 'twentythirteen'); ?> </a>
-            </li>
-            <li>
-              <a href="/maps"> <?php _e('Maps' , 'twentythirteen'); ?> </a>
-            </li>
-            <li>
-              <a href="/news"> <?php _e('News' , 'twentythirteen'); ?> </a>
-            </li>
-
-            <li>
-              <a href="/about"> <?php _e('About' , 'twentythirteen'); ?></a>
-            </li>
-            
+            <?php echo create_geodata_menu() ?>
+                        
             </ul>
         </div>
         

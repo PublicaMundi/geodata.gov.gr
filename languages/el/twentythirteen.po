@@ -390,7 +390,7 @@ msgstr ""
 
 #: footer.php:39 header.php:47
 msgid "Datasets"
-msgstr "Σύνολα δεδομένων"
+msgstr "Δεδομένα"
 
 #: footer.php:42 header.php:50
 msgid "Topics"

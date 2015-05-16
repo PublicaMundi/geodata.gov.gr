@@ -774,7 +774,7 @@ function get_inspire_groups(){
             );
 }
 
-function get_menu_items(){
+function create_geodata_group_menu(){
     $menu = '<ul class="icons-grid">';
     $lang = get_active_locale()['code'];
 
@@ -791,4 +791,36 @@ function get_menu_items(){
 
     $menu .= '</ul>';
     return $menu;
+}
+
+function get_menu_items(){
+    return array(
+        array('name' => 'dataset',
+            'display_name' => __('Datasets' , 'twentythirteen')),
+        array('name' => 'group',
+            'display_name' => __('Topics', 'twentythirteen')),
+        array('name' => 'organization',
+            'display_name' => __('Organizations', 'twentythirteen')),
+        array('name' => 'maps',
+            'display_name' => __('Maps', 'twentythirteen')),
+        array('name' => 'news',
+            'display_name' => __('News', 'twentythirteen')),
+        array('name' => 'api',
+            'display_name' => __('API', 'twentythirteen')),
+        array('name' => 'about',
+            'display_name' => __('About', 'twentythirteen'))
+        );
+}
+
+function create_geodata_menu(){
+    $menu = '';
+    $lang = get_active_locale()['code'];
+
+    foreach (get_menu_items() as $item){
+
+        $menu .= '<li><a href="'.$lang .'/'. $item['name'] .'">'. $item['display_name'] .'</a></li>';
+    }
+
+    return $menu;
+
 }
