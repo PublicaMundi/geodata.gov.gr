@@ -783,7 +783,7 @@ function create_geodata_group_menu(){
         $menu .= '<li class="menu-item">
         <a href="'.$lang .'/group/'. $group['name'] .'">
         
-            <img src="'. get_bloginfo('template_directory') .'/images/topics/'. $group['name'] .'.png" alt="'. $group['name'] .'" class="menu-image">
+            <img src="/uploads/group/topics/'. $group['name'] .'.svg" alt="'. $group['name'] .'" class="menu-image">
             <span class="menu-heading">'. $group['display_name'] .'</span>
         </a>
         </li>';
