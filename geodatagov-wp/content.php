@@ -10,9 +10,10 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
         <div class="container">
-        <div class="news-box <?php if (is_single()){?>single<?php } ?>">
+    
+        <div class="news-box <?php if (is_single()){?>single-post<?php } else{ ?>multi-post <?php } ?>" >
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">

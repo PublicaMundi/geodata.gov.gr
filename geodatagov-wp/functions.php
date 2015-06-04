@@ -806,7 +806,7 @@ function get_menu_items(){
         array('name' => 'news',
             'display_name' => __('News', 'twentythirteen')),
         array('name' => 'api',
-            'display_name' => __('API', 'twentythirteen')),
+            'display_name' => __('Apps', 'twentythirteen')),
         array('name' => 'about',
             'display_name' => __('About', 'twentythirteen'))
         );
@@ -817,8 +817,12 @@ function create_geodata_menu(){
     $lang = get_active_locale()['code'];
 
     foreach (get_menu_items() as $item){
-
-        $menu .= '<li><a href="'.$lang .'/'. $item['name'] .'">'. $item['display_name'] .'</a></li>';
+        if ($item['name'] == 'news' or $item['name'] == 'maps'){
+            $menu .= '<li><a href="'. $item['name'] .'?lang='. $lang.'">'. $item['display_name'] .'</a></li>';
+        }
+        else{
+            $menu .= '<li><a href="'.$lang .'/'. $item['name'] .'">'. $item['display_name'] .'</a></li>';
+        }
     }
 
     return $menu;

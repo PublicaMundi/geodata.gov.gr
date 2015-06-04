@@ -94,11 +94,13 @@ audio:not([controls]) {
 [hidden] {
 	display: none;
 }
-.news-box{
-    float:left;
+
+.multi-post.news-box{
+    float: left;
 }
-.single.news-box{
-    float:center;
+
+.single-post.news-box{
+    float: center;
 }
 .post-social{
    margin-left:auto;

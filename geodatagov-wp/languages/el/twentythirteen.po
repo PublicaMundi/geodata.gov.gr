@@ -404,6 +404,10 @@ msgstr "Οργανισμοί"
 msgid "Maps"
 msgstr "Χάρτες"
 
+#: functions.php:809
+msgid "Apps"
+msgstr "Εφαρμογές"
+
 #: footer.php:51 header.php:59 header.php:309
 msgid "News"
 msgstr "Νέα"
