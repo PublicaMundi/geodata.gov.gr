@@ -8,3 +8,5 @@ Requirements
 Plugins used
 ------------
 -WP To Twitter (https://wordpress.org/plugins/wp-to-twitter/)
+-WP Options Importer (https://wordpress.org/plugins/options-importer/)
+-PG4WP (https://wordpress.org/plugins/postgresql-for-wordpress/)

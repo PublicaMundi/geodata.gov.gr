@@ -1194,9 +1194,9 @@ msgstr "Βιόκοσμος"
 msgid "pingback_url"
 msgstr ""
 
-#: header.php:324
-msgid "Leave your feedback"
-msgstr ""
+#: header.php:115
+msgid " Leave your feedback"
+msgstr "Αφήστε τα σχόλιά σας"
 
 #: image.php:16
 msgid "image-attachment"

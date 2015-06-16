@@ -257,6 +257,10 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
+#: header.php:114
+msgid "Leave your feedback"
+msgstr "Αφήστε τα σχόλιά σας"
+
 #: image.php:22
 msgid ""
 "<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
