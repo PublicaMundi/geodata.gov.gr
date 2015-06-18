@@ -803,10 +803,10 @@ function get_menu_items(){
             'display_name' => __('Organizations', 'twentythirteen')),
         array('name' => 'maps',
             'display_name' => __('Maps', 'twentythirteen')),
-        array('name' => 'news',
-            'display_name' => __('News', 'twentythirteen')),
         array('name' => 'api',
             'display_name' => __('Apps', 'twentythirteen')),
+        array('name' => 'news',
+            'display_name' => __('News', 'twentythirteen')),
         array('name' => 'about',
             'display_name' => __('About', 'twentythirteen'))
         );
