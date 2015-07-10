@@ -4978,7 +4978,7 @@ a.tag:hover {
   *zoom: 1;
   margin: 0 -25px;
   padding-bottom: 15px;
-  background: #fbfbfb url("../../../base/images/bg.png");
+  background: #fbfbfb;
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
@@ -5124,7 +5124,7 @@ a.tag:hover {
   *zoom: 1;
   margin: 0 -25px;
   padding-bottom: 15px;
-  background: #fbfbfb url("../../../base/images/bg.png");
+  background: #fbfbfb;
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
@@ -7019,7 +7019,7 @@ h4 small {
   position: relative;
   padding-top: 10px;
   padding-bottom: 20px;
-  background: #eeeeee url("../../../base/images/bg.png");
+  background: #eeeeee;
 }
 [role=main] {
   min-height: 350px;
@@ -7296,7 +7296,7 @@ h4 small {
   *zoom: 1;
   min-height: 30px;
   color: #ffffff;
-  background: #003647 url("../../../base/images/bg.png");
+  background: #003647;
 }
 .account-masthead:before,
 .account-masthead:after {
@@ -7380,7 +7380,7 @@ h4 small {
   *zoom: 1;
   min-height: 55px;
   color: #ffffff;
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #005d7a;
 }
 .masthead:before,
 .masthead:after {
@@ -7456,7 +7456,7 @@ h4 small {
   *zoom: 1;
   min-height: 55px;
   color: #ffffff;
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #005d7a;
   padding: 20px 0;
 }
 .site-footer:before,
@@ -8040,7 +8040,7 @@ h4 small {
   color: #009900;
 }
 body {
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #005d7a;
 }
 [hidden] {
   display: none;

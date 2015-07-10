@@ -13,7 +13,7 @@
 <article id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
         <div class="container">
     
-        <div class="news-box <?php if (is_single()){?>single-post<?php } else{ ?>multi-post <?php } ?>" >
+    <div class="news-box <?php if (is_single()){?>single-post<?php } else{ ?>multi-post <?php } ?>" >
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
@@ -30,11 +30,10 @@
 		<h1 class="single.entry-title"><?php the_title(); ?></h1>
 		<?php else : ?>
 		<h1 class="entry-title">
-            <!-- <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a> -->
-            <a href="<?php echo esc_url(add_query_arg(array('p' => get_the_ID(), 'paged' => False, 's' => False, 'page_id' => False))); ?>" rel="bookmark"><?php the_title(); ?></a>
+             <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a> 
+            <!-- <a href="<?php echo esc_url(add_query_arg(array('p' => get_the_ID(),  's' => False, 'page_id' => False))); ?>" rel="bookmark"><?php the_title(); ?></a> -->
 		</h1>
 		<?php endif; // is_single() ?>
-
 		</header><!-- .entry-header -->
 
 	<?php if ( ! is_single() ) : // Only display Excerpts for Search ?> 
@@ -77,5 +76,5 @@
 
     </footer><!-- .entry-meta -->
     </div>
-    </div>
+    </div><!-- news-box -->
 </article><!-- #post -->

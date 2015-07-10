@@ -15,25 +15,26 @@
  */
 
 get_header(); ?>
+
+    <div class="toolbar">
+        <div class="container">
+        <ol class="breadcrumb">
+            <?php echo create_news_breadcrumb(); ?>
+        </ol>
+        </div>
+    </div>                
+    <div class="searchbar"> 
+        <?php get_search_form(); ?>
+    </div>  
+
+    <div id="main" class="site-main">
     	<div id="primary" class="primary content-area">
-        <div id="content" class="site-content " role="main">
-        <?php  
-    global $wp_query;
-        $search = the_search_query();
-        //$language = pll_current_language();
-        //query_posts(array_merge($wp_query->query, array('post_type' => 'post', 'lang' => pll_default_language(), 'q' => $search))); ?>
+        <div id="content" class="container site-content " role="main">
         <?php if ( have_posts() ) : ?>
 
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-            <?php //get translated post (in current language) if exists
-            global $post;
-            //if ($post_id = pll_get_post($post->ID, $language)){
-            //    $post = get_post($post_id);
-            //    setup_postdata($post);
-            //}
-            ?>
-            <?php get_template_part( 'content', get_post_format() ); ?>
+                <?php get_template_part( 'content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
 			<?php twentythirteen_paging_nav(); ?>

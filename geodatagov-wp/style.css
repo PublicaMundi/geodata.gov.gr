@@ -105,10 +105,10 @@ audio:not([controls]) {
 .post-social{
    margin-left:auto;
    margin-right:auto;
+   margin-top: 30px;
    width: 120px;
 }
 .post-social.social a [class^="icon-"]{
-    margin-left: 20px;
     font-size: 26px;
 }
 .type-post:hover{
@@ -726,6 +726,10 @@ img.wp-smiley,
 	margin: 0 auto;
 	max-width: 604px;
 	width: 100%;
+}
+
+.entry-header-no-sidebar, .entry-content-no-sidebar{
+    margin: 0;
 }
 
 .sidebar .entry-header,
@@ -1609,24 +1613,55 @@ footer.entry-meta {
  */
 
 /* Pagination */
+
+.module .pagination .page-numbers-holder {
+  display: inline-block;
+  margin: 0 0;
+  padding: 0;
+}
+.pagination .page-numbers  {
+  display: inline;
+  float: left;
+  padding: 4px 12px;
+  line-height: 26px;
+  text-decoration: none;
+  background-color: #ffffff;
+  border-left-width: 0;
+}
+.pagination .page-numbers:hover,
+.pagination .page-numbers:focus{
+  background-color: #f5f5f5;
+}
+.pagination .dots,
+.pagination .dots,
+.pagination .dots:hover,
+.pagination .dots:focus {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+}
+
+
+.pagination > .current {
+  color: #999999;
+  cursor: default;
+}
+
 .module .pagination{
     border-top: 1px #545356 solid;
     border-bottom: 1px #545356 solid;
 }
-.module .pagination ul > li > a{
+.module .pagination .page-numbers {
     border-left: 1px #545356 solid;
     border-right: none;
     color: #4E59A4;
 }
 
-.module .pagination ul > li:last-child > a{
+.module .pagination .page-numbers-holder:last-child{
     border-right: 1px #545356 solid;
 }
 
-.module .pagination ul > li:first-child > a{
-    border-left-width: 1px;
-}
-.module .pagination li.active a{
+.module .pagination .current{
     background: #F3F4F4; 
 }
 .nav-links a{
@@ -1644,7 +1679,7 @@ footer.entry-meta {
     padding: 1% 0;
     display: block;
     float: left;
-    width: 32%;
+    width: 33%;
     height: 100%;
     text-align: center;
     line-height:18px;
@@ -1657,7 +1692,6 @@ footer.entry-meta {
     //border-right: 1px #d8d8e4 solid;
 }
 .previous-post{
-    width: 35%;;
     text-align: right;
     border-left: 2px #d8d8e4 solid;
 }

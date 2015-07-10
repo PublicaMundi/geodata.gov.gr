@@ -28,8 +28,30 @@
  *
  * @see twentythirteen_content_width() for template-specific adjustments.
  */
+
+$NEWS_ID_EN = 91;
+
+$APPS_ID_EN = 96;
+
+$ABOUT_ID_EN = 123;
+
 if ( ! isset( $content_width ) )
 	$content_width = 604;
+
+function get_news_id_en() {
+    global $NEWS_ID_EN;
+    return $NEWS_ID_EN;
+}
+
+function get_apps_id_en() {
+    global $APPS_ID_EN;
+    return $APPS_ID_EN;
+}
+
+function get_about_id_en() {
+    global $ABOUT_ID_EN;
+    return $ABOUT_ID_EN;
+}
 
 /**
  * Add support for a custom header image.
@@ -186,6 +208,7 @@ function twentythirteen_scripts_styles() {
 
 	wp_enqueue_script( 'menu-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), '2014-06-08');
 	wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/js/jquery.min.js', array( 'jquery' ), '2014-06-08');
+	wp_enqueue_script( 'bootstrap-min', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '2014-06-08');
 	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentythirteen-fonts', twentythirteen_fonts_url(), array(), null );
 
@@ -285,45 +308,25 @@ function twentythirteen_paging_nav() {
     <section class="module">
         <div class="container">
         <div class="pagination pagination-centered" >
-		<!-- <h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'twentythirteen' ); ?></h1>
-		<div class="nav-links"> -->
-        <ul>
-			<?php if ( get_previous_posts_link() ) : ?>
-            <!--	<div class="nav-previous"><?php previous_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentythirteen' ) ); ?></div> -->
-
-            
-            <li>
-                <?php previous_posts_link(__('<span class="meta-nav"><<</span>', 'twentythirteen'));  ?>
-            </li>
-			<?php endif; ?>
-
-         <?php 
-            $pppage = get_option('posts_per_page');
-            $count = $wp_query->found_posts;
-            $total = $count/$pppage;
-            $active_num = get_current_posts_page();
-            
-            if ($count % $pppage){
-                $total+=1;
-            }
-                for ($num = 1; $num <= $total; $num++){
+		
+            <?php 
+                global $wp_query;
+                $args = array(
+                        'posts_per_page' => get_option('posts_per_page'),
+                        'category_name' => 'news',
+                        'total' => $wp_query->max_num_pages,
+                        'current' => max(1, get_query_var('paged')),
+                        'next_text' => __('>>'),
+                        'prev_text' => __('<<'),
+                        'before_page_number' => '',
+                        'after_page_number' => ''
+                    );
                 ?>
-                    <li <?php if ($num==$active_num){?>class="active"<?php }?>>
-                    <a href=<?php  echo esc_url( add_query_arg( 'paged', $num)); ?>>
-                        <span class="meta-nav"><?php echo $num ?></span>
-                    </a>
-                </li>
-                <?php 
-                }
-            ?>
-            <?php if ( get_next_posts_link() ) : ?>
-            <li>
-                <?php next_posts_link(__('<span class="meta-nav">>></span>', 'twentythirteen')); ?>
-            </li>
-			<!-- <div class="nav-next"><?php next_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?></div>-->
-            <?php endif; ?>
-    </ul>
-        </div>
+                <div class="page-numbers-holder"> 
+                    <?php echo paginate_links($args); ?>
+                </div>
+
+                </div>
 		</div><!-- .nav-links -->
     </section>
 	<?php
@@ -360,16 +363,15 @@ function twentythirteen_post_nav() {
         <div class="nav-links">
             <div class="post-section next-post">
             <?php
-            if ( is_a( $next , 'WP_Post' ) ) { ?>
-                 <a href="<?php echo add_query_arg('p', $next->ID ); ?>"><span><&nbsp;<?php echo get_the_title( $next->ID ); ?></a>
-            <?php } ?></div>
-             
-            <div class="post-section back-post"><a href="<?php echo esc_url(add_query_arg(array('page_id' => False, 'p' => False))) ?>"><?php _e('Back to all news', 'twentythirteen') ?></a></div>
+            if ( is_a( $next , 'WP_Post' ) ): ?>
+                 <a href="<?php echo get_permalink( $next->ID ); ?>"><span><&nbsp;<?php echo get_the_title( $next->ID ); ?></a>
+            <?php endif ?></div>
+            <div class="post-section back-post"><a href="<?php echo get_permalink( pll_get_post(get_news_id_en()))  ?>"> <?php _e('Back to all news', 'twentythirteen') ?></a></div>
             <div class="post-section previous-post">
             <?php
-            if ( is_a( $previous , 'WP_Post' ) ) { ?>
-                 <a href="<?php echo add_query_arg('p', $previous->ID ); ?>"><?php echo get_the_title( $previous->ID ); ?>&nbsp;></a>
-            <?php } ?>
+            if ( is_a( $previous , 'WP_Post' ) ): ?>
+                 <a href="<?php echo get_permalink( $previous->ID ); ?>"><?php echo get_the_title( $previous->ID ); ?>&nbsp;></a>
+            <?php endif ?>
             </div>
 
 
@@ -542,8 +544,8 @@ if ( ! function_exists( 'twentythirteen_excerpt_more' ) && ! is_admin() ) :
  */
 function twentythirteen_excerpt_more( $more ) {
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
-		//esc_url( get_permalink( get_the_ID() ) ),
-        esc_url(add_query_arg(array('p' => get_the_ID(), 'paged' => False, 'page_id' => False, 's' => False))),
+		esc_url( get_permalink( get_the_ID() ) ),
+        //esc_url(add_query_arg(array('p' => get_the_ID(), 'paged' => False, 'page_id' => False, 's' => False))),
 			/* translators: %s: Name of current post */
 			sprintf( __( 'Continue reading %s <span class="meta-nav"></span>', 'twentythirteen' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
 		);
@@ -639,7 +641,7 @@ function my_search_form( $form ){
     $form = '<form role="search" class="search-form-top search-form" data-module="select-switch" method="get" id="searchform"  class="searchform" >
         <div class="searchfw search-input search-giant">
         <div class="container">
-            <input type="hidden" name="lang" value="'. get_active_locale()['code'] .'" />
+            <input type="hidden" name="paged" value="1" />
             <input type="search" class="search simple-input search-field" value="' . get_search_query() . '" name="s" id="s"   placeholder="' . $search . '" >
             <button type="submit" class="btn-search" value="Search">
             <i class="icon-search">
@@ -650,6 +652,7 @@ function my_search_form( $form ){
         </div>
         </form>';
 
+        //<input type="hidden" name="lang" value="'. get_active_locale()['code'] .'" />
     return $form;
 
 }
@@ -658,37 +661,6 @@ add_filter('excerpt_length', 'my_excerpt_length');
 function my_excerpt_length($length) {
     return 50; // Or whatever you want the length to be.
 }
-
-/*add_filter( 'pre_get_posts', 'get_default_language_posts' );
- function get_default_language_posts( $query ) {
-    if ( $query->is_main_query() && function_exists('pll_default_language') && !is_admin()){
-    $terms = get_terms('post_translations'); //polylang stores translated post IDs in a serialized array in the description field of this custom taxonomy
-    $defLang =  pll_default_language(); //default lanuage of the blog
-    $curLang =  pll_current_language(); //current selected language requested on the broswer
-    $filterPostIDs = array();
-    foreach($terms as $translation){
-
-        $transPost = unserialize($translation->description);
-
-        //if the current language is not the default, lets pick up the default language post
-               if($defLang!=$curLang) $filterPostIDs[]=$transPost[$defLang];
-                    }
-
-                         if($defLang!=$curLang){
-
-                                $query->set('lang' , $defLang.','.$curLang);  //select both default and current language post
-
-    
-                               $query->set('post__not_in', $filterPostIDs); // remove the duplicate post in the default language
-
-                                            }
-
-                                               }  
-
-                                                  return $query;
-
- }
-*/
 
 add_filter('get_available_locales', 'get_available_locales');
 function get_available_locales(){
@@ -803,7 +775,7 @@ function get_menu_items(){
             'display_name' => __('Organizations', 'twentythirteen')),
         array('name' => 'maps',
             'display_name' => __('Maps', 'twentythirteen')),
-        array('name' => 'api',
+        array('name' => 'applications',
             'display_name' => __('Apps', 'twentythirteen')),
         array('name' => 'news',
             'display_name' => __('News', 'twentythirteen')),
@@ -814,12 +786,24 @@ function get_menu_items(){
 
 function create_geodata_menu(){
     $menu = '';
-    $lang = get_active_locale()['code'];
+    //$lang = get_active_locale()['code'];
+    $lang = substr(pll_current_language("locale"), 0, 2);
 
     foreach (get_menu_items() as $item){
-        if ($item['name'] == 'news' or $item['name'] == 'maps'){
-            $menu .= '<li><a href="'. $item['name'] .'?lang='. $lang.'">'. $item['display_name'] .'</a></li>';
+        if ($item['name'] == 'maps'){
+            $menu .= '<li><a href="'. $item['name'] .'?locale='. $lang.'">'. $item['display_name'] .'</a></li>';
         }
+        else if( $item['name'] == 'news') {
+                $menu .= '<li><a href="'. get_permalink(pll_get_post(get_news_id_en())) .'">'. $item['display_name'] .'</a></li>';
+        }
+        else if( $item['name'] == 'applications') {
+                $menu .= '<li><a href="'. get_permalink(pll_get_post(get_apps_id_en())) .'">'. $item['display_name'] .'</a></li>';
+
+        }
+        else if( $item['name'] == 'about') {
+                $menu .= '<li><a href="'. get_permalink(pll_get_post(get_about_id_en())) .'">'. $item['display_name'] .'</a></li>';
+        }
+
         else{
             $menu .= '<li><a href="'.$lang .'/'. $item['name'] .'">'. $item['display_name'] .'</a></li>';
         }
@@ -827,4 +811,97 @@ function create_geodata_menu(){
 
     return $menu;
 
+}
+function create_breadcrumb() {
+    global $post; 
+    $parents = array_reverse(get_post_ancestors( $post->ID ));
+    
+    $items = '';
+    foreach ($parents as $parent){
+            $items .= '<li> <a href="'. get_permalink($parent) .'">'. get_the_title($parent) .'</a> </li>';
+    }
+    $items.= '<li><a href="'. get_permalink() .'">'. get_the_title() .'</a></li>';
+
+    return $items;
+}
+function create_news_breadcrumb() {
+    $page_id = get_queried_object_id();
+    
+    $items = '<li>
+                <a href="'. get_permalink(pll_get_post(get_news_id_en())) .'">'. __("News", "twentythirteen") .'</a>
+            </li>';
+    if (is_single()){
+        $is_post = True;
+        $items .= '<li>
+                <a class="active" href="'. get_permalink() .'">'. get_the_title() .'</a>
+            </li>';
+    }
+    
+    
+
+    return $items;
+}
+
+function create_language_menu() {
+    $menu = '<li class="language">';
+    $menu .= '<a href="'. esc_url( add_query_arg(array("p"=>False, "page_id"=>False, "s"=>False, "lang"=> get_active_locale()["code"]))) .'"><span class="down-arrow">'. get_active_locale()["name"] .'</span></a>';
+    $menu .= '<ul>';
+    
+    foreach (get_available_locales() as $loc){
+    //foreach ($languages as $lang){
+        if ($loc['code'] != get_active_locale()["code"]){ 
+            $menu .= '<li value="'. $loc["code"].'">';
+            $menu .= '<a href="'. esc_url( add_query_arg(array("p"=>False,  "page_id"=>False, "s"=>False, "lang"=> $loc["code"]))) .'"><span>'. $loc["name"] .'</span></a>';
+            $menu .= '</li>';
+        }
+    }
+    $menu .= '</ul>';
+    $menu .= '</li>';
+    
+    return $menu;
+}
+function create_pll_language_menu() {
+    $languages = pll_the_languages(array('raw'=>1));
+    $menu = '<li class="language">';
+    $menu .= '<a href=""><span class="down-arrow">'. pll_current_language("name").'</span></a>';
+    $menu .= '<ul>';
+    
+    //foreach (get_available_locales() as $loc){
+    foreach ($languages as $lang){
+        //if ($loc['code'] != get_active_locale()["code"]){ 
+        //    $menu .= '<li value="'. $loc["code"].'">';
+        //    $menu .= '<a href="'. esc_url( add_query_arg(array("p"=>False,  "page_id"=>False, "s"=>False, "lang"=> $loc["code"]))) .'"><span>'. $loc["name"] .'</span></a>';
+        //    $menu .= '</li>';
+        if (!( $lang["current_lang"])){
+            $menu .= '<li value='. $lang["slug"] .'">';
+            $menu .= '<a href="'. $lang["url"] .'"><span>'. $lang["name"] .'</span></a>';
+            $menu .= '</li>';
+        }
+    }
+    $menu .= '</ul>';
+    $menu .= '</li>';
+
+	//return wp_nav_menu( array( 'menu' => 'lang_menu', 'menu_class' => 'nav-menu' ) ); 
+    return $menu;
+}
+
+function create_side_menu(){
+    global $post;
+    if ( $post->post_parent){
+        $children = get_pages( array( "child_of" => $post->post_parent, "sort_order" => "asc", "sort_column" => "menu_order" ) );
+    }
+    else{
+        $children = get_pages( array("child_of" => $post->ID,  "sort_order" => "asc", "sort_column" => "menu_order" ) );
+    }
+    $menu = '<ul id="'.$post->ID.'_list" class="unstyled nav nav-simple nav-facet count_desc li-hidden">';
+    foreach ($children as $item){
+        $menu .= '<li class="nav-item">';
+        $menu .= '<a href="'. get_permalink( $item->ID) .'" title="'. get_the_title($item->ID) .'">';
+        $menu .= '<span>'. get_the_title($item->ID) .'</span>';
+        $menu .= '</a>';
+        $menu .= '</li>';
+    }
+    $menu .= '</ul>';
+
+    return $menu;
 }

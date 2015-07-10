@@ -13,6 +13,16 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
+            <div class="toolbar">
+                <div class="container">
+                <ol class="breadcrumb">
+                    <?php echo create_news_breadcrumb(); ?>
+                </ol>
+                </div>
+            </div>                
+            <div class="searchbar"> 
+                <?php get_search_form(); ?>
+            </div>  
 
 		<?php if ( have_posts() ) : ?>
 			<header class="archive-header">

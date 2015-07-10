@@ -52,30 +52,10 @@
         </nav>
         </div>
         <div class="account avatar">
-    <?php 
-    if( get_option( 'show_on_front' ) == 'page' ) 
-        $home_link = get_option('page_for_posts' ) ; 
-    else
-        $home_link = 0;?>
- 
-        <ul class="user-menu">
-            <li class="language">
-            <a href="<?php echo esc_url( add_query_arg(array('p'=>False, 'lang'=> get_active_locale()['code'], 'page_id'=>False, 's'=>False)));  ?>"><span class="down-arrow"><?php echo get_active_locale()['name']; ?></span></a>
-
-    <ul>
-    <?php foreach (get_available_locales() as $loc){
-        if ($loc['code'] != get_active_locale()['code']){ 
-?>
-            <li value="<?php $loc['code']?>">
-            <a href="<?php echo esc_url( add_query_arg(array('p'=>False, 'lang'=> $loc['code'], 'page_id'=>False, 's'=>False)));  ?>"><span><?php echo $loc['name']?></span></a>
-
-        </li>
-<?php }
-    }
-?>
-    </ul>
-            </li>
-          </ul>
+            <ul class="user-menu">
+                <!-- <?php echo create_language_menu() ?> -->
+                <?php echo create_pll_language_menu() ?>
+            </ul>
         </div>
 
     </header>
@@ -85,34 +65,11 @@
         <?php echo create_geodata_group_menu() ?>     
     </div>
 
-	<div id="page" >
+        <div class="feedback-form">
 
-            <div id="main" class="site-main">
-                <div class="toolbar">
-                    <div class="container">
-                    <ol class="breadcrumb">
-                        <li class="home">
-                            <a href="/">
-                                <span></span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="/news?lang=<?php echo get_active_locale()['code']?>"> <?php _e('News' , 'twentythirteen'); ?> </a>
-
-                        </li>
-                    </ol>
-                    </div>
-                </div>
-                
-                <div class="searchbar"> 
-                    <?php get_search_form(); ?>
-                </div>
- 
-                <div class="feedback-form">
-
-                <a href="https://docs.google.com/forms/d/1T9gBjo9GTzElMB6qwTM7fGTb79u4ftB8BLj8c2kKthA/viewform?formkey=dFdSbXBKX3Q4eFVKTU1ocHhiTWdiOXc6MQ&hl=el"><button class="btn btn-primary"><?php _e(' Leave your feedback', 'twentythirteen')?></button><div class="imis-logo-side"></div></a>
-                </div>
-   
-
+            <a href="https://docs.google.com/forms/d/1T9gBjo9GTzElMB6qwTM7fGTb79u4ftB8BLj8c2kKthA/viewform?formkey=dFdSbXBKX3Q4eFVKTU1ocHhiTWdiOXc6MQ&hl=el">
+                <button class="btn btn-primary"><?php _e(' Leave your feedback', 'twentythirteen')?></button><div class="imis-logo-side"></div>
+            </a>
+        </div>
 
 

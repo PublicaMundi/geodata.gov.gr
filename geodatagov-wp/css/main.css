@@ -546,6 +546,7 @@ p a{
     display: inline-block;
     float: none;
     border-radius:0;
+    margin: 0 2px;
     border: 2px #fff solid;
 }
 .carousel-indicators li:hover{
@@ -607,9 +608,10 @@ p a{
 [role=main] .primary{
     width: 697px;
 }
-//.module-content:first-child{
-//    padding-top:0;
-//}
+
+.module-content:first-child{
+    padding-top:0;
+}
 #menu-block, #menu-block-home{
     z-index: 2000;
     position:absolute;
@@ -737,6 +739,9 @@ p a{
     padding: 12px 0 6px 0;
     overflow: hidden;
     line-height: 30px;
+}
+.toolbar .breadcrumb li:after{
+    content: "/";
 }
 .toolbar .sixtypercent .breadcrumb{
     max-width: 61%;

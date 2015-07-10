@@ -25,7 +25,7 @@
 		}
 	} );
 
-	/**
+   	/**
 	 * Enables menu toggle for small screens.
 	 */
 	( function() {
@@ -101,4 +101,7 @@
 			isRTL: body.is( '.rtl' )
 		} );
 	}
+    
+    
+                
 } )( jQuery );

@@ -1,15 +1,24 @@
+this.ckanext || (this.ckanext = {})
+this.ckanext.publicamundi || (this.ckanext.publicamundi = {})
 
 jQuery(document).ready(function ($) {
     
     var console = window.console
-    //var debug = $.proxy(console, 'debug') 
-    menuHandler();
+    var debug = $.proxy(console, 'debug') 
+    
+    init();
 });
 
 
-function menuHandler() {
-        
+function init() {
+
+     //Add last class to news page
+		$var = $('.hentry:last');
+         $var.find('.container').css('border-bottom','none');
+
+
     var obj = $('.nav-pills > li > a[href$="/group"]');
+    
     // Mouse enter and leave listeners on groups button
     obj.on('mouseenter', function(){
         $('#menu-block').addClass('enabled');
@@ -54,7 +63,6 @@ function menuHandler() {
     });
 
     //Breadcrumbs auto hide all but last element
-
         brd_items = $('.breadcrumb li:first').next().nextAll();
         brd_items = brd_items.not(':last');
 
@@ -63,14 +71,50 @@ function menuHandler() {
             //$(this).context.innerText = "...";
             $(this).addClass('breadcrumb-hide-text');
         });
-        brd_items.on('mouseenter', function(){
+       
+        tlbar = $('.toolbar');
+        brdcrmb = $('.breadcrumb');
+        tlbar.on('mouseenter', function(){
+            brd_items.each(function(idx) {
+            //console.log($(this).context.innerText);
+            //$(this).context.innerText = "...";
             $(this).removeClass('breadcrumb-hide-text');
-        });
-        brd_items.on('mouseleave', function(){
-            $(this).addClass('breadcrumb-hide-text');
-        });
+                //addClass('breadcrumb-hide-text');
+            });
 
-    // Add last class to news page
-    $var = $('.hentry:last');
-    $var.find('.container').css('border-bottom','none');
+
+        });
+        
+        tlbar.on('mouseleave', function(){
+            brd_items.each(function(idx) {
+            //console.log($(this).context.innerText);
+            //$(this).context.innerText = "...";
+            $(this).addClass('breadcrumb-hide-text');
+                //addClass('breadcrumb-hide-text');
+            });
+
+        });
+        //brd_items.on('mouseenter', function(){
+           // $(this).removeClass('breadcrumb-hide-text');
+        //});
+        //brd_items.on('mouseleave', function(){
+          //  $(this).addClass('breadcrumb-hide-text');
+        //});
+
+        // Detect OS for switching linux font
+        /*var os = navigator.platform;
+        console.log(os);
+        if (os.indexOf('Linux') == 0){
+        $("head").prepend("<style type=\"text/css\">" + 
+                "@font-face {\n" +
+                "\tfont-family: \"ACMuliLight\";\n" + 
+                "\tsrc: url('../fonts/ACMuli/AC-Muli.ttf') format('opentype');\n" + 
+                "}\n" + 
+                "\tp.myClass {\n" + 
+                "\tfont-family: ACMuliLight !important;\n" + 
+                "}\n" + 
+                "</style>");
+
+        }
+        */
 }
