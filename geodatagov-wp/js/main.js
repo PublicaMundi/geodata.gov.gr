@@ -11,11 +11,7 @@ jQuery(document).ready(function ($) {
 
 
 function init() {
-
-     //Add last class to news page
-		$var = $('.hentry:last');
-         $var.find('.container').css('border-bottom','none');
-
+    
 
     var obj = $('.nav-pills > li > a[href$="/group"]');
     
@@ -62,6 +58,15 @@ function init() {
         //$(this).parent().find('.btn:first').removeClass('btn-hover');
     });
 
+    // Detect OS for switching linux font
+    var os = navigator.platform;
+    console.log(os);
+    if (os.indexOf('Linux') == 0){
+            $("body").css({'font-family': 'sans-serif'});
+
+            $("a, b, textarea, input, heading, h1, h2, h3, h4, h5, h6").css({'font-family': 'sans-serif'});
+        }
+
     //Breadcrumbs auto hide all but last element
         brd_items = $('.breadcrumb li:first').next().nextAll();
         brd_items = brd_items.not(':last');
@@ -84,7 +89,6 @@ function init() {
 
 
         });
-        
         tlbar.on('mouseleave', function(){
             brd_items.each(function(idx) {
             //console.log($(this).context.innerText);
@@ -101,20 +105,5 @@ function init() {
           //  $(this).addClass('breadcrumb-hide-text');
         //});
 
-        // Detect OS for switching linux font
-        /*var os = navigator.platform;
-        console.log(os);
-        if (os.indexOf('Linux') == 0){
-        $("head").prepend("<style type=\"text/css\">" + 
-                "@font-face {\n" +
-                "\tfont-family: \"ACMuliLight\";\n" + 
-                "\tsrc: url('../fonts/ACMuli/AC-Muli.ttf') format('opentype');\n" + 
-                "}\n" + 
-                "\tp.myClass {\n" + 
-                "\tfont-family: ACMuliLight !important;\n" + 
-                "}\n" + 
-                "</style>");
 
-        }
-        */
 }

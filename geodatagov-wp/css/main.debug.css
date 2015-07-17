@@ -5376,9 +5376,6 @@ a.tag:hover {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("../../../base/images/sprite-ckan-icons.png");
-  background-repeat: no-repeat;
-  background-position: 16px 16px;
   content: "";
   position: absolute;
   top: 50%;
@@ -5451,9 +5448,6 @@ a.tag:hover {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("../../../base/images/sprite-ckan-icons.png");
-  background-repeat: no-repeat;
-  background-position: 16px 16px;
   width: 17px;
   height: 17px;
   background-position: 0px -16px;
@@ -6691,9 +6685,6 @@ h4 small {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("../../../base/images/sprite-ckan-icons.png");
-  background-repeat: no-repeat;
-  background-position: 16px 16px;
 }
 .ckan-icon-fb {
   width: 16px;
@@ -6880,9 +6871,6 @@ h4 small {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("../../../base/images/sprite-ckan-icons.png");
-  background-repeat: no-repeat;
-  background-position: 16px 16px;
   text-indent: -900em;
   background: url("../../../base/images/sprite-resource-icons.png") no-repeat 0 0;
 }
@@ -6999,7 +6987,7 @@ h4 small {
   -moz-box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
   position: relative;
-  background: #ffffff url("../../../base/images/nav.png") 0 0 repeat-y;
+  background: #ffffff;
   margin-bottom: 20px;
 }
 .wrapper:before,
