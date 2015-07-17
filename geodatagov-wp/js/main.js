@@ -12,6 +12,8 @@ jQuery(document).ready(function ($) {
 
 function init() {
     
+    var last_it = $('.hentry:last');
+    last_it.find('.container').css('border-bottom','none');
 
     var obj = $('.nav-pills > li > a[href$="/group"]');
     
