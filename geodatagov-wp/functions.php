@@ -354,8 +354,8 @@ function twentythirteen_post_nav() {
 
             
 <?php
-	if ( ! $next && ! $previous )
-		return;
+	//if ( ! $next && ! $previous )
+	//	return;
 	?>
 	<nav class="navigation post-navigation" role="navigation">
         <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
@@ -753,7 +753,7 @@ function create_geodata_group_menu(){
     foreach (get_inspire_groups() as $group){
 
         $menu .= '<li class="menu-item">
-        <a href="'.$lang .'/group/'. $group['name'] .'">
+        <a href="/'.$lang .'/group/'. $group['name'] .'">
         
             <img src="'. get_bloginfo('template_directory') .'/images/topics/'. $group['name'] .'.svg" alt="'. $group['name'] .'" class="menu-image">
             <span class="menu-heading">'. $group['display_name'] .'</span>
@@ -791,7 +791,7 @@ function create_geodata_menu(){
 
     foreach (get_menu_items() as $item){
         if ($item['name'] == 'maps'){
-            $menu .= '<li><a href="'. $item['name'] .'?locale='. $lang.'">'. $item['display_name'] .'</a></li>';
+            $menu .= '<li><a href="/'. $item['name'] .'?locale='. $lang.'">'. $item['display_name'] .'</a></li>';
         }
         else if( $item['name'] == 'news') {
                 $menu .= '<li><a href="'. get_permalink(pll_get_post(get_news_id_en())) .'">'. $item['display_name'] .'</a></li>';
@@ -805,7 +805,7 @@ function create_geodata_menu(){
         }
 
         else{
-            $menu .= '<li><a href="'.$lang .'/'. $item['name'] .'">'. $item['display_name'] .'</a></li>';
+            $menu .= '<li><a href="/'.$lang .'/'. $item['name'] .'">'. $item['display_name'] .'</a></li>';
         }
     }
 
