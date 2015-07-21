@@ -748,7 +748,8 @@ function get_inspire_groups(){
 
 function create_geodata_group_menu(){
     $menu = '<ul class="icons-grid">';
-    $lang = get_active_locale()['code'];
+    //$lang = get_active_locale()['code'];
+    $lang = substr(pll_current_language("locale"), 0, 2);
 
     foreach (get_inspire_groups() as $group){
 

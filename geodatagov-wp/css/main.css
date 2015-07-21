@@ -1150,7 +1150,7 @@ p a{
 }
 
 .site-footer{
-    background-color: #ECECEC;
+    background: #ECECEC;
     color: #6B75B3;
 }
 .site-footer a, .site-footer label{

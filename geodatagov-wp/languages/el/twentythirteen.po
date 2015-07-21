@@ -416,6 +416,14 @@ msgstr "Νέα"
 msgid "About"
 msgstr "Σχετικά"
 
+#: footer.php:44
+msgid "IMIS"
+msgstr "ΙΠΣΥ"
+
+#: footer.php:55
+msgid "Report issue"
+msgstr "Αναφορά προβλήματος"
+
 #: functions.php:42
 msgid "wp_version"
 msgstr ""
