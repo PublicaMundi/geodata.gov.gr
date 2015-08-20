@@ -64,9 +64,7 @@ function init() {
     var os = navigator.platform;
     console.log(os);
     if (os.indexOf('Linux') == 0){
-            $("body").css({'font-family': 'sans-serif'});
-
-            $("a, b, textarea, input, heading, h1, h2, h3, h4, h5, h6").css({'font-family': 'sans-serif'});
+        $('head').append('<link rel="stylesheet" href="/content/wp-content/themes/geodata.gov.gr/geodatagov-wp/css/linux-override.css" type="text/css" />');
         }
 
     //Breadcrumbs auto hide all but last element
