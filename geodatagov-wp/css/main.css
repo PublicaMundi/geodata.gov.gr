@@ -1414,6 +1414,7 @@ p a{
 /* Buttons */
 .btn {
     font-family: 'ACMuli';
+    font-weight: normal;
     border-radius: 0;
     border: 2px #4E59A4 solid;
     padding: 5px 8px 5px 8px;
