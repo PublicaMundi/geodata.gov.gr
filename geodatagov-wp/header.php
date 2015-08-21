@@ -67,8 +67,17 @@
 
         <div class="feedback-form">
 
-            <a href="https://docs.google.com/forms/d/1T9gBjo9GTzElMB6qwTM7fGTb79u4ftB8BLj8c2kKthA/viewform?formkey=dFdSbXBKX3Q4eFVKTU1ocHhiTWdiOXc6MQ&hl=el">
-                <button class="btn btn-primary"><?php _e(' Leave your feedback', 'twentythirteen')?></button><div class="imis-logo-side"></div>
+   <?php $lang = substr(pll_current_language("locale"), 0, 2); ?>
+            <?php if ($lang == 'el'){
+			$feedback_form = "https://docs.google.com/forms/d/1T9gBjo9GTzElMB6qwTM7fGTb79u4ftB8BLj8c2kKthA/viewform?formkey=dFdSbXBKX3Q4eFVKTU1ocHhiTWdiOXc6MQ&hl=el";
+			}
+		  else{
+			$feedback_form = "https://docs.google.com/forms/d/1_biYR042tPc7bvQ7UimOVCFTvRLFjuh5BH3SwegfIgI/viewform";
+			} ?>
+		
+
+<a href="<?php echo $feedback_form ?>"  target="_blank">
+                <button  class="btn btn-primary"><?php _e(' Leave your feedback', 'twentythirteen')?></button><div class="imis-logo-side"></div>
             </a>
         </div>
 
