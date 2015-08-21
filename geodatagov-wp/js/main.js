@@ -64,8 +64,8 @@ function init() {
     var os = navigator.platform;
     console.log(os);
     if (os.indexOf('Linux') == 0){
-        $('head').append('<link rel="stylesheet" href="/content/wp-content/themes/geodata.gov.gr/geodatagov-wp/css/linux-override.css" type="text/css" />');
-        }
+        $('head').append('<link rel="stylesheet" href="/css/linux-override.css" type="text/css" />');
+    }
 
     //Breadcrumbs auto hide all but last element
         brd_items = $('.breadcrumb li:first').next().nextAll();
