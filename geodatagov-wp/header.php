@@ -75,10 +75,9 @@
 			$feedback_form = "https://docs.google.com/forms/d/1_biYR042tPc7bvQ7UimOVCFTvRLFjuh5BH3SwegfIgI/viewform";
 			} ?>
 		
-
-<a href="<?php echo $feedback_form ?>"  target="_blank">
-                <button  class="btn btn-primary"><?php _e(' Leave your feedback', 'twentythirteen')?></button><div class="imis-logo-side"></div>
-            </a>
+    <a href="<?php echo $feedback_form ?>"  target="_blank">
+                <button  class="btn btn-primary"><?php _e(' Leave your feedback', 'twentythirteen')?></button></a>
+    <a href="http://www.imis.athena-innovation.gr"><div class="imis-logo-side"></div></a>
         </div>
 
 
