@@ -41,6 +41,7 @@
         
         <div class="quarter footer-links">
             <ul class="unstyled">
+            <li><a href="mailto:info@geodata.gov.gr"><?php _e('Contact', 'twentythirteen') ?></a></li>
             <li><a href="http://www.imis.athena-innovation.gr"><?php _e('IMIS', 'twentythirteen') ?></a></li>
             <li><a href="http://inspire.ec.europa.eu/"><?php _e('INSPIRE') ?></a></li>
             <li><a href="http://open-data.europa.eu/en/data/"><?php _e('EU Open Data Portal') ?></a></li>            
@@ -52,7 +53,6 @@
             <li><a href="http://www.publicamundi.eu">PublicaMundi</a></li>
             <li><a href="https://twitter.com/geodatagovgr">Twitter</a></li>
             <li><a href="https://github.com/PublicaMundi">Github</a></li>
-            <li><a href="<?php echo get_permalink(pll_get_post(get_about_id_en())) ?>contact"><?php _e('Contact', 'twentythirteen') ?></a></li>
             <li><a href="https://github.com/PublicaMundi/geodata.gov.gr/issues/new"><?php _e('Report issue', 'twentythirteen') ?></a></li>
 
             </ul>
