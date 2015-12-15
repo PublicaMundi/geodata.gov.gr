@@ -1,0 +1,11 @@
+-The Wordpress theme for geodata.gov.gr based on Twenty Thirteen (https://wordpress.org/themes/twentythirteen/)
+-
+-Requirements
+-------------
+-- Wordpress version 4.1.1 (https://wordpress.org/wordpress-4.1.1.zip)
+-- Polylang plugin (https://wordpress.org/plugins/polylang) version 1.1.5 (https://downloads.wordpress.org/plugin/polylang.1.1.5.zip) 
+- 
+-Other plugins used
+-------------
+-- WP Options Importer (https://wordpress.org/plugins/options-importer/) version 0.6.1 (https://downloads.wordpress.org/plugin/wordpress-importer.0.6.1.zip)
+-- WP Twitter Autopost (https://wordpress.org/plugins/wp-twitter-autopost/) version 1.1 (https://downloads.wordpress.org/plugin/wp-twitter-autopost.zip)
