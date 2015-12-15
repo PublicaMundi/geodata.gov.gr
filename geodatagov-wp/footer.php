@@ -52,6 +52,7 @@
             <li><a href="http://www.publicamundi.eu">PublicaMundi</a></li>
             <li><a href="https://twitter.com/geodatagovgr">Twitter</a></li>
             <li><a href="https://github.com/PublicaMundi">Github</a></li>
+            <li><a href="<?php echo get_permalink(pll_get_post(get_about_id_en())) ?>contact"><?php _e('Contact', 'twentythirteen') ?></a></li>
             <li><a href="https://github.com/PublicaMundi/geodata.gov.gr/issues/new"><?php _e('Report issue', 'twentythirteen') ?></a></li>
 
             </ul>

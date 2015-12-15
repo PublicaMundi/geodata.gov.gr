@@ -421,6 +421,10 @@ msgid "IMIS"
 msgstr "ΙΠΣΥ"
 
 #: footer.php:55
+msgid "Contact"
+msgstr "Επικοινωνία"
+
+#: footer.php:56
 msgid "Report issue"
 msgstr "Αναφορά προβλήματος"
 

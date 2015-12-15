@@ -407,7 +407,7 @@ msgstr ""
 
 #: footer.php:39 header.php:50
 msgid "Datasets"
-msgstr "Paparia"
+msgstr ""
 
 #: footer.php:42 header.php:53
 msgid "Topics"
